@@ -1,7 +1,17 @@
 Nuget пакет для Ф# компілятора 
 ======================
 
-Цей репозіторій містить інфраструктуру для створення Nuget пакету із компілятором Ф#.
+Цей репозіторій містить інфраструктуру для створення Nuget пакету із компілятором [Ф#](https://github.com/kant2002/fsharp).
+
+Щоб використати мову Ф# вам треба лише додати пакет FSharp.Compiler.Ukrainian
+```
+mkdir sample
+cd sample
+dotnet new console -lang F# -o .
+dotnet add package FSharp.Compiler.Ukrainian
+```
+
+## Створення Nuget пакету
 
 Спочатку треба скомпілювати сам компілятор Ф#
 ```

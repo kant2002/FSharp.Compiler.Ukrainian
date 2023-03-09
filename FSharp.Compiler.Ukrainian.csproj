@@ -5,14 +5,19 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <VersionPrefix>0.0.1</VersionPrefix>
+    <Description>Компілятор для мови програмування Ф#</Description>
     <PackageType>Dependency</PackageType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Authors>Andrii Kurdiumov</Authors>
+    <RepositoryUrl>https://github.com/kant2002/FSharp.Compiler.Ukrainian</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="build\**"
           Pack="true"
           PackagePath="build\" />
-    <None Include="README.md" />
+    <None Include="README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>
