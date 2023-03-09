@@ -1,0 +1,37 @@
+<Project>
+
+  <PropertyGroup Condition="$(FSharpRoot) == ''">
+	  <FSharpCompilerPath>$(MSBuildThisFileDirectory)..\tools\netfx\</FSharpCompilerPath>
+	  <DotnetFSharpCompilerPath>$(MSBuildThisFileDirectory)..\tools\dotnet\</DotnetFSharpCompilerPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(FSharpRoot) != ''">
+	  <DotnetFSharpCompilerPath>$(FSharpRoot)artifacts\bin\fsc\Debug\net7.0\</DotnetFSharpCompilerPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(FSharpRoot) != ''">
+	  <FSharpCompilerPath>$(FSharpRoot)artifacts\bin\fsc\Debug\net472\</FSharpCompilerPath>
+	  <FSharpPreferNetFrameworkTools>false</FSharpPreferNetFrameworkTools>
+  </PropertyGroup>
+
+	<PropertyGroup>
+		<Fsc_DotNet_CompilerPath>$(FSharpCompilerPath)</Fsc_DotNet_CompilerPath>
+		<Fsc_DotNet_CompilerPath>$(FSharpCompilerPath)</Fsc_DotNet_CompilerPath>
+		<Fsc_NetFramework_ToolPath>$(VsInstallRoot)/Common7/IDE/CommonExtensions/Microsoft/FSharp/Tools/</Fsc_NetFramework_ToolPath>
+
+		<Fsc_DotNET_ToolPath>$(NetCoreRoot)</Fsc_DotNET_ToolPath>
+		<Fsc_DotNET_ToolExe>dotnet.exe</Fsc_DotNET_ToolExe>
+		<Fsc_DotNET__FSharpCoreLibraryPacksFolder>$(Fsc_DotNet_CompilerPath)library-packs</Fsc_DotNET__FSharpCoreLibraryPacksFolder>
+		<FscToolPath>$(Fsc_Dotnet_ToolPath)</FscToolPath>
+		<FscToolExe>$(Fsc_Dotnet_ToolExe)</FscToolExe>
+		<FsiToolPath>$(Fsc_Dotnet_ToolPath)</FsiToolPath>
+		<FsiToolExe>$(Fsc_Dotnet_ToolExe)</FsiToolExe>
+	</PropertyGroup>
+	
+	<PropertyGroup Label="CLI customization">
+		<DotnetFscCompilerPath>$(DotnetFSharpCompilerPath)fsc.dll</DotnetFscCompilerPath>
+		<Fsc_DotNET_DotnetFscCompilerPath>$(DotnetFSharpCompilerPath)fsc.dll</Fsc_DotNET_DotnetFscCompilerPath>
+		<DotnetFsiCompilerPath>$(DotnetFSharpCompilerPath)fsi.dll</DotnetFsiCompilerPath>
+		<Fsi_DotNET_DotnetFsiCompilerPath>$(DotnetFSharpCompilerPath)fsi.dll</Fsi_DotNET_DotnetFsiCompilerPath>
+	</PropertyGroup>
+</Project>

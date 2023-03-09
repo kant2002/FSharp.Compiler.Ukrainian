@@ -1,0 +1,29 @@
+<Project>
+  <PropertyGroup>
+    <_ArchiveDestination>$(OutputPath)tools\</_ArchiveDestination>
+    <_NetFxDestination>$(_ArchiveDestination)netfx\</_NetFxDestination>
+    <_DotnetDestination>$(_ArchiveDestination)dotnet\</_DotnetDestination>
+  </PropertyGroup>
+
+  <ItemGroup>
+      <None Include="$(_ArchiveDestination)**"
+            Exclude="$(_ArchiveDestination)**/.gitignore"
+            Pack="true"
+            PackagePath="tools" />
+      <NetFxCompiler Include="$(FSharpRoot)artifacts\bin\fsc\Release\net472\**" />
+      <DotnetCompiler Include="$(FSharpRoot)artifacts\bin\fsc\Release\net7.0\**" />
+  </ItemGroup>
+
+  <Target Name="_RestoreArchive"
+        AfterTargets="_GenerateRestoreProjectPathWalk">
+    <Error Text="FSharpRoot variable is not set" Condition="'$(FSharpRoot)' == ''" />
+
+    <MakeDir Directories="$(OutputPath)" />
+
+    <Copy SourceFiles="@(NetFxCompiler)"
+          DestinationFiles="@(NetFxCompiler->'$(_NetFxDestination)%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Copy SourceFiles="@(DotnetCompiler)"
+          DestinationFiles="@(DotnetCompiler->'$(_DotnetDestination)%(RecursiveDir)%(Filename)%(Extension)')" />
+  </Target>
+
+</Project>
